@@ -12,6 +12,8 @@ jobs:
 
     - name: Starting ES Docker Build
       run: |
+        sudo pip3 install jinja2-cli && release-tools/scripts/required_packages.sh
+
         echo "${{ secrets.dockerhub_token }}" | docker login -u splitice --password-stdin
 
         echo "Executing On-demand Build for ES Docker Image"
