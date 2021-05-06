@@ -18,9 +18,6 @@ jobs:
       run: echo "${{ secrets.dockerhub_token }}" | docker login -u splitice --password-stdin
 
     - name: Starting ES Docker Build
-      env:
-        DOCKER_USER: ${{ secrets.DOCKER_USER }}
-        DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
       run: |
         echo "Executing On-demand Build for ES Docker Image"
         ODFE_VER=`./release-tools/scripts/version-info.sh --od`
